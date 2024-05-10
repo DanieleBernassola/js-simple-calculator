@@ -2,7 +2,7 @@ MILESTONE 1
 <!-- Aggiungere event listener a tutti i numeri (0-9) -->
 
 - Aggiungo un event listener alla classe che contiene tutti i numeri
-- Con una funzione trovo il numero da visualizzare
+- Con l'innerHTML del target trovo il numero selezionato
 
 <!-- quando si clicca su un numero, concatenarlo al numero visualizzato in alto -->
 
