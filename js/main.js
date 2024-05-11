@@ -12,17 +12,19 @@ let operator = '';
 let num2 = 0;
 let result = 0;
 
+clickNumber();
 // Event listener per tutti i numeri
-numbers.addEventListener('click', function(e){
-    if (e.target.className === 'number' || e.target.className === 'large number'){
-        let numberSelected = parseInt(e.target.innerHTML);
-        console.log('Hai cliccato su:', numberSelected);
-        // String interpolation sul result(schermo calcolatrice)
-        screen.innerHTML += `${numberSelected}`;
-        num1 = numberSelected;
-        console.log(num1);
-    }
-})
+function clickNumber(){
+    numbers.addEventListener('click', function(e){
+        if (e.target.className === 'number' || e.target.className === 'large number'){
+            let numberSelected = parseInt(e.target.innerHTML);
+            console.log('Hai cliccato su:', numberSelected);
+            // String interpolation sul result(schermo calcolatrice)
+            screen.innerHTML += `${numberSelected}`;
+            num1 = numberSelected;
+        }
+    })
+}
 
 // Event listener per gli operatori
 operators.addEventListener('click', function(e){
@@ -52,21 +54,22 @@ operators.addEventListener('click', function(e){
 })
 
 // Event listener secondo numero
-numbers.addEventListener('click', function(e){
-    if (e.target.className === 'number' || e.target.className === 'large number'){
-        let numberSelected = parseInt(e.target.innerHTML);
-        console.log('Hai cliccato su:', numberSelected);
-        // String interpolation sul result(schermo calcolatrice)
-        screen.innerHTML += `${numberSelected}`;
-        num2 = numberSelected;
-        console.log(num2);
-    }
-})
+// numbers.addEventListener('click', function(e){
+//     if (e.target.className === 'number' || e.target.className === 'large number'){
+//         let numberSelected = parseInt(e.target.innerHTML);
+//         console.log('Hai cliccato su:', numberSelected);
+//         // String interpolation sul result(schermo calcolatrice)
+//         screen.innerHTML += `${numberSelected}`;
+//         num2 = numberSelected;
+//         console.log(num2);
+//     }
+// })
 
 // Event listener per =
 equals.addEventListener('click', function(e){
-    console.log('Secondo operando:', num2);
+    console.log('Questo è il secondo operando:', num2);
     console.log('Calcolo operazione...');
+    // Verifica operatore da utilizzare
     switch (operator) {
         case '+':
             result = num1 + num2;
@@ -85,7 +88,9 @@ equals.addEventListener('click', function(e){
     screen.innerHTML = result;
 })
 
-canc.addEventListener('click', function(e){
+// Event listener per C
+canc.addEventListener('click', function(){
+    // Reset totale operazione
     num1 = 0;
     num2 = 0;
     result = 0;
