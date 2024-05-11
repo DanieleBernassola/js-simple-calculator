@@ -5,6 +5,7 @@ const numbers = document.querySelector('.numbers');
 let screen = document.getElementById('result');
 const operators = document.querySelector('.operators');
 const equals = document.querySelector('.numbers .orange');
+const canc = document.querySelector('.orange.operator');
 
 let num1 = 0;
 let operator = '';
@@ -19,6 +20,7 @@ numbers.addEventListener('click', function(e){
         // String interpolation sul result(schermo calcolatrice)
         screen.innerHTML += `${numberSelected}`;
         num1 = numberSelected;
+        console.log(num1);
     }
 })
 
@@ -49,6 +51,7 @@ operators.addEventListener('click', function(e){
     }
 })
 
+// Event listener secondo numero
 numbers.addEventListener('click', function(e){
     if (e.target.className === 'number' || e.target.className === 'large number'){
         let numberSelected = parseInt(e.target.innerHTML);
@@ -60,8 +63,9 @@ numbers.addEventListener('click', function(e){
     }
 })
 
+// Event listener per =
 equals.addEventListener('click', function(e){
-    console.log('Secondo operando', num2);
+    console.log('Secondo operando:', num2);
     console.log('Calcolo operazione...');
     switch (operator) {
         case '+':
@@ -77,6 +81,15 @@ equals.addEventListener('click', function(e){
             result = num1 / num2;
             break;
     }
-    console.log(result);
+    console.log('Risultato operazione:', result);
     screen.innerHTML = result;
+})
+
+canc.addEventListener('click', function(e){
+    num1 = 0;
+    num2 = 0;
+    result = 0;
+    operator = '';
+    screen.innerHTML = '';
+    console.log('Calcolo resettato');
 })
